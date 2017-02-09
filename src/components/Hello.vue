@@ -29,12 +29,10 @@
 
     <div class="header-wrap">
       <div class="header center-container">
-        <a href="/" title="美乃滋酱の个人博客" class="van-blog-name">美乃滋酱の个人博客</a>
+        <a href="/" title="努力,感谢,笑颜" class="van-blog-name">乃木坂</a>
 
         <div class="links">
-          <a href="/archive">archive</a>
-          <a href="/blog/0014473261101972d31e0092c81454086e36d443a7673ea000">about</a>
-          <router-link :to="{path:'/blogs/writeBlog'}">书写Blog</router-link>
+          <router-link :to="{path:'/blogs/writeBlog'}">书写</router-link>
         </div>
 
       </div>

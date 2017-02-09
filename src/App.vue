@@ -6,16 +6,11 @@
 </template>
 
 <script>
-
-import Main from './components/Main'
-
 export default {
   name: 'app',
   components: {
   }
 }
-
-
 </script>
 
 <style>
@@ -26,11 +21,8 @@ export default {
 }
 
 .vue-logo{
-    width: 48px;
-    height: 48px;
+    width: 80px;
+    height: 80px;
 }
-
-
-
 
 </style>

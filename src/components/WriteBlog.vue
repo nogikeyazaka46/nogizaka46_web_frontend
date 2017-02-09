@@ -16,10 +16,10 @@
     import VueMarkdown from 'vue-markdown';
 
     export default{
-        data(){
-          return {
+        data() {
+          return{
             blog_content:''
-          }
+            }
         },
         components:{
           'vue-markdown': VueMarkdown
@@ -36,6 +36,7 @@
           }
         }
     }
+
 
 
 </script>
