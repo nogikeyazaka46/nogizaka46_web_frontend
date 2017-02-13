@@ -14,7 +14,7 @@
         components:{
             Blogs,
             Hello,
-        }
+        },
     }
 
 </script>

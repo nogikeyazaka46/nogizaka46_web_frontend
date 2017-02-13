@@ -5,6 +5,9 @@ const states = {
   blogs: "",
   errormsg: "",
   blogContent: "",
+  showNextPage: false,
+  showPrePage: false,
+  currentPageNo: 0,
 };
 
 export {states};

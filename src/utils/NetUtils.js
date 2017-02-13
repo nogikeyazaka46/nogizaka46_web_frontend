@@ -3,12 +3,6 @@
  */
 'use strict'
 
-var _context;
-
-var ANDROID_HISTORY_URL = 'http://gank.io/api/data/Android/10/';
-
-var FULI_HISTORY_DATA = 'http://gank.io/api/data/福利/10/';
-
 const NetRequest = {
 
   /**
@@ -62,45 +56,6 @@ const NetRequest = {
 
   }
 
-
-  //requestAndroidData(pageNo) {
-  //  return _context.requestUrl(ANDROID_HISTORY_URL + pageNo, 'GET');
-  //}
-  //
-  //requestFULIData(pageNo) {
-  //  return _context.requestUrl(FULI_HISTORY_DATA + pageNo, 'GET');
-  //}
-  //
-  //requestALL(pageNo, callBack) {
-  //  Promise
-  //    .all([_context.requestAndroidData(pageNo), _context.requestFULIData(pageNo)])
-  //    .then((response)=> {
-  //      callBack('OK', response);
-  //    })
-  //    .catch((error)=> {
-  //      callBack('FAIL', error);
-  //    })
-  //}
-  //
-  //requestAndroid(pageNo, callBack) {
-  //  _context.requestAndroidData(pageNo)
-  //    .then((response)=> {
-  //      callBack('OK', response)
-  //    })
-  //    .catch((error)=> {
-  //      callBack('FAIL', error)
-  //    })
-  //}
-  //
-  //requestFuli(pageNo, callBack) {
-  //  _context.requestFULIData(pageNo)
-  //    .then((response)=> {
-  //      callBack('OK', response)
-  //    })
-  //    .catch((error)=> {
-  //      callBack('FAIL', error)
-  //    })
-  //}
 };
 
 export {NetRequest};

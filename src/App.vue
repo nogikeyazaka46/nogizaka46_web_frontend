@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img class="vue-logo" src="./assets/logo.png">
+    <img class="vue-logo" src="./assets/logo.png" @click="refresh">
     <router-view></router-view>
   </div>
 </template>
@@ -9,6 +9,12 @@
 export default {
   name: 'app',
   components: {
+
+  },
+  methods:{
+    refresh(){
+      this.$router.push({path:'/'});
+    }
   }
 }
 </script>
@@ -22,7 +28,7 @@ export default {
 
 .vue-logo{
     width: 80px;
-    height: 80px;
+    height: 90px;
 }
 
 </style>

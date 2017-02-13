@@ -1,5 +1,4 @@
 <template>
-  <!-- todo   bug here -->
   <vue-markdown :source="blogContent"></vue-markdown>
 </template>
 <style>

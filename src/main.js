@@ -15,7 +15,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: Main
+    redirect: '/blogs/page/0',
   },
   {
     path: '/blog/:id',
@@ -24,11 +24,15 @@ const routes = [
   {
     path: '/blogs/writeBlog',
     component: WriteBlog
+  },
+  {
+    path: '/blogs/page/:pageNo',
+    component: Main,
   }
 ];
 
 const router = new VueRouter({
-  routes // （缩写）相当于 routes: routes
+  routes
 });
 
 /* eslint-disable no-new */

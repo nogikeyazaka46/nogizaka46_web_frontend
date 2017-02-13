@@ -11,6 +11,15 @@ const getters = {
   },
   getBlogContent(state){
     return state.blogContent;
+  },
+  getShouldShowPre(state){
+    return state.showPrePage;
+  },
+  getShouldShowNext(state){
+    return state.showNextPage;
+  },
+  currentPageNo(state){
+    return state.currentPageNo;
   }
 };
 

@@ -37,6 +37,18 @@ const actions = {
       .catch((error)=> {
         console.log("error");
       })
+  },
+  getBlogsByPage(context, pageNo){
+    NetRequest.requestUrl(apis.getBlogsByPage + "?pageNo=" + pageNo + "&pageSize=8", "GET")
+      .then((responseJson)=> {
+        context.commit("setBlogs", responseJson.content);
+        context.commit("setShouldShowNextPage", responseJson.last);
+        context.commit("setShouldShowPrePage", responseJson.first);
+        context.commit("setCurrentPageNo",responseJson.number);
+      })
+      .catch((error)=> {
+        console.log("error:");
+      });
   }
 };
 
