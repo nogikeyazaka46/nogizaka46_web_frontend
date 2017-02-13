@@ -1,20 +1,21 @@
 <template>
   <div id="app">
-    <img class="vue-logo" src="./assets/logo.png" @click="refresh">
+    <hello></hello>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+
+import Hello from './components/Hello';
+
 export default {
   name: 'app',
   components: {
-
+    Hello
   },
   methods:{
-    refresh(){
-      this.$router.push({path:'/'});
-    }
+
   }
 }
 </script>
@@ -24,11 +25,6 @@ export default {
     width: 660px;
     max-width: 90%;
     margin: 0 auto;
-}
-
-.vue-logo{
-    width: 80px;
-    height: 90px;
 }
 
 </style>

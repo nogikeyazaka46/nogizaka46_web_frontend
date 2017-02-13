@@ -2,14 +2,16 @@
   <div class="hello">
 
     <div class="header-wrap">
-      <div class="header center-container">
-        <a href="http://baike.baidu.com/link?url=jsHPhXNdyJt4Hf4Ro67YiNLGELM1LzO0RngEVl3XYYHvfDJDsBNyN0k_QueNb-MXntHdU7MDWsbFPl3zTJRMCrGMzIDaOkF26J6rprumHmV2ud0sxLrk79Agt601REjc" title="努力,感谢,笑颜">乃木坂</a>
 
+      <img class="nogizaka_logo" src="../assets/logo.png" @click="refresh">
+
+      <div class="center-container">
         <div class="links">
           <router-link :to="{path:'/blogs/writeBlog'}">书写</router-link>
         </div>
 
       </div>
+
     </div>
 
   </div>
@@ -26,8 +28,14 @@ export default {
   },
   components:{
 
+  },
+  methods:{
+    refresh(){
+      this.$router.push({path:'/'});
+    }
   }
 }
+
 
 
 
@@ -37,8 +45,18 @@ export default {
 <style scoped>
   #van-blog-name{
   }
+  .center-container{
+    float:right;
+  }
+  .nogizaka_logo{
+    width: 120px;
+    height: 140px;
+  }
 
-
+  .links{
+    margin: 0 auto;
+    padding: 40px 0;
+  }
 
 
 </style>

@@ -21,8 +21,8 @@
 
     <div class="pager">
       <div class="pager-wrapper">
-        <router-link v-if="shouldShowPre" :to="{path:'/blogs/page/'+(currentPageNo-1)}">older posts →</router-link>
-        <router-link v-if="shouldShowNext" :to="{path:'/blogs/page/'+(currentPageNo+1)}">← new posts</router-link>
+        <router-link v-if="shouldShowPre" :to="{path:'/blogs/page/'+(currentPageNo-1)}" class="pre">older posts →</router-link>
+        <router-link v-if="shouldShowNext" :to="{path:'/blogs/page/'+(currentPageNo+1)}" class="next">← new posts</router-link>
       </div>
     </div>
   </div>
@@ -35,6 +35,8 @@ body{
   margin-left: auto;
   margin-right: auto;
   font-family: "source-serif-pro", "STSong", "SimSun", "Times New Roman", Times, serif;
+  background-color: beige;
+  padding-bottom: 12px;
 }
 
 .title {
@@ -73,7 +75,16 @@ body{
     padding-top: 30px;
     font-size:30px;
     font-family: 'Tangerine', serif;
+}
 
+.pre{
+  float:left;
+  text-decoration: none;
+}
+
+.next{
+  float:right;
+  text-decoration: none;
 }
 
 </style>
