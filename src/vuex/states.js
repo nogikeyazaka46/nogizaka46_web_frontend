@@ -8,6 +8,7 @@ const states = {
   showNextPage: false,
   showPrePage: false,
   currentPageNo: 0,
+  categories:""
 };
 
 export {states};

@@ -22,6 +22,10 @@ const mutations = {
   setCurrentPageNo(state, pageNo){
     state.currentPageNo = pageNo;
     console.log("当前页码:" + pageNo);
+  },
+  setCategories(state, categories){
+    state.categories = categories;
+    console.log("categories:" + categories);
   }
 };
 export {mutations};

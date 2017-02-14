@@ -23,7 +23,7 @@ const actions = {
   getBlogById(context, id){
     NetRequest.requestUrl(apis.getBlogDetailById + "?id=" + id, "GET")
       .then((responseJson)=> {
-        context.commit("setBlogDetail", responseJson);
+        context.commit("setBlogDetail", responseJson.responseData);
       })
       .catch((error)=> {
         console.log("获取blog详情出错!");
@@ -49,7 +49,18 @@ const actions = {
       .catch((error)=> {
         console.log("error:");
       });
+  },
+  getCategories(context){
+    NetRequest.requestUrl(apis.getCategories,"GET")
+      .then((responseJson)=>{
+        console.log(responseJson.responseData);
+        context.commit("setCategories",responseJson.responseData);
+      })
+      .catch((error)=>{
+        console.log("error:");
+      });
   }
+
 };
 
 export {actions};

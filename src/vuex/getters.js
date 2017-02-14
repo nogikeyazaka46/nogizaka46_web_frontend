@@ -20,6 +20,9 @@ const getters = {
   },
   currentPageNo(state){
     return state.currentPageNo;
+  },
+  getCategories(state){
+    return state.categories;
   }
 };
 
