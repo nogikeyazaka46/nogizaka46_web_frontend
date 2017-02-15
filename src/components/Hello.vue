@@ -8,7 +8,7 @@
       <div class="center-container">
 
         <div class="links">
-          <a href="" class="links-inner">API</a>
+          <a href="https://github.com/nogikeyazaka46/nogizaka46_web_frontend/blob/master/documents/API.md" class="links-inner">API</a>
           <router-link :to="{path:'/blogs/writeBlog'}">书写</router-link>
         </div>
 
