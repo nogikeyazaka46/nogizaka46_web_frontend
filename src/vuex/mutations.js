@@ -26,6 +26,14 @@ const mutations = {
   setCategories(state, categories){
     state.categories = categories;
     console.log("categories:" + categories);
+  },
+  setAddNewCategoryResult(state, resultCode){
+    state.addNewCategoryResult = resultCode;
+    console.log("添加新的categoty:" + resultCode);
+  },
+  setAddNewBlogResult(state, addNewBlogResult){
+    state.addNewBlogResult = addNewBlogResult;
+    console.log("新增新的blog:" + addNewBlogResult);
   }
 };
 export {mutations};

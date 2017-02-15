@@ -10,7 +10,17 @@
           {{ category }}
         </option>
       </select>
+      <button @click="addNewCatogory">添加新的类别</button>
     </div>
+
+    <div v-show="showNewCategory" class="newCategory">
+      <input v-model="newCategory"/>
+      <button @click="submitNewCategory">提交</button>
+      <button @click="cancelNewCategory">取消</button>
+    </div>
+
+    <span class="summary-title">summary:</span>
+    <input type="text" v-model="blog_summary" class="summary"/>
 
     <div class="writing">
       <div class="writingBlock">
@@ -78,9 +88,20 @@ border-color: purple;
     margin-bottom: 16px;
 }
 
+.newCategory{
+   margin:16px 0 16px 16px;
+}
 
+.summary{
+    width: 50%;
+    height: 48px;
+    background-color: cadetblue;
+    margin: 16px;
+}
 
-
+.summary-title{
+  margin:0 0 16px 16px;
+}
 
 
 </style>
@@ -97,8 +118,21 @@ border-color: purple;
           return{
             blog_name:'',
             blog_type:'',
-            blog_content:''
+            blog_content:'',
+            showNewCategory:false,
+            newCategory:'',
+            blog_summary:'',
+            addNewBlogResult:false
             };
+        },
+        watch: {
+        '$store.getters.getAddNewCategoryResult' () {
+            this.cancelNewCategory();
+            this.getCategories();
+          },
+        '$store.getters.getAddNewBlogResult' () {
+            alert("添加成功!");
+          }
         },
         components:{
           'vue-markdown': VueMarkdown
@@ -106,6 +140,12 @@ border-color: purple;
         computed:{
           categories(){
             return this.$store.getters.getCategories;
+          },
+          getAddNewCategoryResult(){
+            return this.$store.getters.getAddNewCategoryResult;
+          },
+          getAddNewBlogResult(){
+            return this.$store.getters.getAddNewBlogResult;
           }
         },
         methods:{
@@ -113,17 +153,24 @@ border-color: purple;
             let json = {
               name:this.blog_name,
               content:this.blog_content,
-              summary:"summary",
-              category:blog_type
+              summary:this.blog_summary,
+              category:this.blog_type
 	          };
             this.$store.dispatch("saveBlog",json);
           },
           getCategories(){
             this.$store.dispatch("getCategories");
+          },
+          addNewCatogory(){
+            this.showNewCategory = !this.showNewCategory;
+          },
+          submitNewCategory(){
+            this.$store.dispatch("addNewCategory",this.newCategory);
+          },
+          cancelNewCategory(){
+            this.showNewCategory = !this.showNewCategory;
           }
         }
     }
-
-
 
 </script>

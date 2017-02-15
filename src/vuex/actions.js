@@ -6,6 +6,7 @@
 import {NetRequest} from '../utils/NetUtils';
 
 import * as apis from "./blogs/apis";
+import * as category_apis from './category/apis';
 
 // todo handle error
 const actions = {
@@ -31,10 +32,12 @@ const actions = {
   },
   saveBlog(context, blogContent){
     NetRequest.postSend(apis.saveBlog, JSON.stringify(blogContent))
-      .then((response)=> {
+      .then((responseJson)=> {
+        context.commit("setAddNewBlogResult", true);
         console.log('保存成功!')
       })
       .catch((error)=> {
+        context.commit("setAddNewBlogResult", false);
         console.log("error");
       })
   },
@@ -44,22 +47,31 @@ const actions = {
         context.commit("setBlogs", responseJson.content);
         context.commit("setShouldShowNextPage", responseJson.last);
         context.commit("setShouldShowPrePage", responseJson.first);
-        context.commit("setCurrentPageNo",responseJson.number);
+        context.commit("setCurrentPageNo", responseJson.number);
       })
       .catch((error)=> {
         console.log("error:");
       });
   },
   getCategories(context){
-    NetRequest.requestUrl(apis.getCategories,"GET")
-      .then((responseJson)=>{
+    NetRequest.requestUrl(apis.getCategories, "GET")
+      .then((responseJson)=> {
         console.log(responseJson.responseData);
-        context.commit("setCategories",responseJson.responseData);
+        context.commit("setCategories", responseJson.responseData);
       })
-      .catch((error)=>{
+      .catch((error)=> {
         console.log("error:");
       });
-  }
+  },
+  addNewCategory(context, category){
+    NetRequest.requestUrl(category_apis.getAllCategories + "?category=" + category, "POST")
+      .then((responseJson)=> {
+        context.commit("setAddNewCategoryResult", responseJson.code);
+      })
+      .catch((error)=> {
+        console.log("error");
+      });
+  },
 
 };
 

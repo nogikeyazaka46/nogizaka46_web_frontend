@@ -23,6 +23,12 @@ const getters = {
   },
   getCategories(state){
     return state.categories;
+  },
+  getAddNewCategoryResult(state){
+    return state.addNewCategoryResult;
+  },
+  getAddNewBlogResult(state){
+    return state.addNewBlogResult;
   }
 };
 

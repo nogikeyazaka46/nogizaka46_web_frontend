@@ -8,7 +8,9 @@ const states = {
   showNextPage: false,
   showPrePage: false,
   currentPageNo: 0,
-  categories:""
+  categories: "",
+  addNewCategoryResult: 0,
+  addNewBlogResult: false
 };
 
 export {states};
