@@ -6,7 +6,9 @@
       <img class="nogizaka_logo" src="../assets/logo.png" @click="refresh">
 
       <div class="center-container">
+
         <div class="links">
+          <a href="" class="links-inner">API</a>
           <router-link :to="{path:'/blogs/writeBlog'}">书写</router-link>
         </div>
 
@@ -57,6 +59,8 @@ export default {
     margin: 0 auto;
     padding: 40px 0;
   }
-
+.links-inner{
+  margin:16px;
+}
 
 </style>
