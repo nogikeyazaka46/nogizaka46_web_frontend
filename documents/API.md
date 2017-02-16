@@ -16,12 +16,22 @@
   pageNo | int | 否 | 默认为0（表示第一页）
   pageSize | int | 否 | 默认为15
   desc | boolean | 否 | 默认为true（表示到倒排序）
-  
+
 - 返回
-	
+
 	```
 	{
-	  "content": [],
+	  "content": [
+	        {
+            "id": 1,
+            "name": "markdown测试",
+            "summary": "summary",
+            "content": "####%20%E6%95%88%E6%9E%9C%E5%9B%BE%EF%BC%9A%0A%0A!%5BhorizontalScrollView%5D(http://o7zh7nhn0.bkt.clouddn.com/horizontalScrollMoreLayout.gif)",
+            "category": "cate",
+            "created_time": 1486717321037
+          },
+          ...
+	  ],
 	  "last": true,
 	  "totalElements": 43,
 	  "totalPages": 3,
@@ -31,7 +41,7 @@
 	  "number": 3
 }
 	```
-	
+
 ##### 2、获取新闻详情
 
 - 接口地址:`/blogs/getBlogDetailById`
@@ -41,7 +51,7 @@
   参数名 | 类型 | 必填 | 备注
   --------- | -------------| --------- | -------------
   id | int | 是 | 新闻id（主键）
-    
+
 - 返回
 
 	```
@@ -58,13 +68,13 @@
 	  "message": "success"
 }
 	```
-	
+
 
 ##### 3、获取新闻种类
 
 - 接口地址:`/blogs/getCategories`
-- 调用方式:`GET`	
-- 返回	
+- 调用方式:`GET`
+- 返回
 
 	```
 	{
@@ -81,8 +91,8 @@
 
 
 
-	
-  
+
+
 
 
 

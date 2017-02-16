@@ -3,7 +3,7 @@
 
     <div class="header-wrap">
 
-      <img class="nogizaka_logo" src="../assets/me.jpg" @click="refresh">
+      <img class="nogizaka_logo" src="../assets/logo.png" @click="refresh">
 
       <div class="center-container">
 
@@ -51,7 +51,7 @@ export default {
     float:right;
   }
   .nogizaka_logo{
-    width: 206px;
+    width: 126px;
     height: 140px;
   }
 
