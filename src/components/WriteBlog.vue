@@ -19,6 +19,23 @@
       <button @click="cancelNewCategory">取消</button>
     </div>
 
+    <div class="blogImage_uploader_wrapper">
+      <span>上传新闻首图:</span>
+      <form id="file-upload" method="post" action="http://upload.qiniu.com/"
+            enctype="multipart/form-data">
+
+        <input name="key" id="key" v-model="uploadedFileNameInQiniu" type="hidden">
+        <input name="token" type="hidden"
+               value="fTTrymZ4T669NmSFFfCbzXdf1mHXFDoubEQ81M2T:_xnTg0vGiycLSSHxuThEqsGDrSo=:eyJzY29wZSI6InJhZGFzbSIsImRlYWRsaW5lIjoxMDAwNTA4NzkxMDU0M30=">
+        <input id="userfile" name="file" type="file" @change="getUploadedFileName($event.target.value)"/>
+
+      </form>
+
+      <button @click="uploadBlogImage" class="image-uploader-button">上传新闻首图</button>
+
+      <img v-bind:src="imageUrl">
+    </div>
+
     <span class="summary-title">summary:</span>
     <input type="text" v-model="blog_summary" class="summary"/>
 
@@ -36,6 +53,19 @@
   </div>
 </template>
 <style>
+
+.blogImage_uploader_wrapper{
+    margin-left:16px;
+}
+
+.image-uploader-button{
+    position: relative;
+    left: 267px;
+}
+
+.fileUpload{
+  margin-left:16px;
+}
 
 .uploadBlogs{
   background-color: bisque;
@@ -184,11 +214,10 @@ sup {
     word-wrap: break-word;
   }
 }
-
-
 </style>
 <script>
     import VueMarkdown from 'vue-markdown';
+    import {NetRequest} from '../utils/NetUtils';
 
     export default{
 
@@ -198,13 +227,16 @@ sup {
 
         data() {
           return{
-            blog_name:'',
-            blog_type:'',
-            blog_content:'',
-            showNewCategory:false,
-            newCategory:'',
-            blog_summary:'',
-            addNewBlogResult:false
+              blog_name:'',
+              blog_type:'',
+              blog_content:'',
+              showNewCategory:false,
+              newCategory:'',
+              blog_summary:'',
+              addNewBlogResult:false,
+              imageUrl:'',
+              uploadedFileNameInQiniu:'',
+              uploadedFileName:''
             };
         },
         watch: {
@@ -251,8 +283,22 @@ sup {
           },
           cancelNewCategory(){
             this.showNewCategory = !this.showNewCategory;
+          },
+          uploadBlogImage(){
+            let file_upload_data = document.getElementById("file-upload");
+            NetRequest.sendFormData('http://upload.qiniu.com', new FormData(file_upload_data))
+              .then((responseJson)=> {
+                console.log("-----成功返回:" + responseJson + "------");
+                this.imageUrl = 'http://o7zh7nhn0.bkt.clouddn.com/'+ responseJson.key;
+                alert(responseJson.key);
+              })
+              .catch((error)=> {
+                console.log("-----失败返回---");
+              });
+          },
+          getUploadedFileName(value){
+            this.uploadedFileNameInQiniu = Math.random().toString(36).substr(2) + value.match(/\.?[^.\/]+$/);
           }
         }
     }
-
 </script>

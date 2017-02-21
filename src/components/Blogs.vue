@@ -89,7 +89,7 @@ body{
 
 </style>
 <script>
-    import {TimeUtils} from '../utils/TimeUtils';
+    import {TimeUtils} from '../utils/TimeUtils.js';
 
     export default{
       created(){

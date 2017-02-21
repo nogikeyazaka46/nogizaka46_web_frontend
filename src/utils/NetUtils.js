@@ -51,9 +51,28 @@ const NetRequest = {
         console.log("error:" + req.statusText);
         reject(new Error(req.statusText));
       };
-
     });
+  },
 
+  sendFormData(url, formData){
+    return new Promise((resolve, reject)=> {
+      let req = new XMLHttpRequest();
+      req.open('POST', url, true);
+      req.send(formData);
+      req.onload = (re)=> {
+        if (req.status === 200) {
+          let responseJson = JSON.parse(req.responseText);
+          console.log("-----成功返回:" + responseJson + "------");
+          resolve(responseJson);
+        } else {
+          reject(new Error(req.statusText));
+        }
+      };
+      req.onerror = ()=> {
+        console.log("error:" + req.statusText);
+        reject(new Error(req.statusText));
+      };
+    });
   }
 
 };
