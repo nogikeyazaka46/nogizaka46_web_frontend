@@ -28,7 +28,8 @@
             "summary": "summary",
             "content": "####%20%E6%95%88%E6%9E%9C%E5%9B%BE%EF%BC%9A%0A%0A!%5BhorizontalScrollView%5D(http://o7zh7nhn0.bkt.clouddn.com/horizontalScrollMoreLayout.gif)",
             "category": "cate",
-            "created_time": 1486717321037
+            "created_time": 1486717321037,
+            "image_url": "http://o7zh7nhn0.bkt.clouddn.com/auu88f43a5el3lk3gcajxajor.jpg"
           },
           ...
 	  ],
@@ -62,7 +63,8 @@
 	    "summary": "summary",
 	    "content": "中文测试",
 	    "category": "cate",
-	    "created_time": 1486720729698
+	    "created_time": 1486720729698,
+	    "image_url": "http://o7zh7nhn0.bkt.clouddn.com/auu88f43a5el3lk3gcajxajor.jpg"
 	  },
 	  "code": 200,
 	  "message": "success"

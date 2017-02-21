@@ -268,7 +268,8 @@ sup {
               name:this.blog_name,
               content:this.blog_content,
               summary:this.blog_summary,
-              category:this.blog_type
+              category:this.blog_type,
+              image_url:this.imageUrl
 	          };
             this.$store.dispatch("saveBlog",json);
           },

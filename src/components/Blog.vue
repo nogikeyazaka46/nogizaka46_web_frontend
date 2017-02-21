@@ -1,5 +1,7 @@
-<template>
+<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div>
+    <img v-bind:src="blogImageUrl">
+
     <div class="blog_name">
       <span>{{blogName}}</span>
     </div>
@@ -98,6 +100,7 @@ sup {
 
 
 
+
 </style>
 
 <script>
@@ -115,12 +118,17 @@ export default{
       blogName(){
         let blog = this.$store.getters.getBlogContent;
         return blog.name;
+      },
+      blogImageUrl(){
+        let blog = this.$store.getters.getBlogContent;
+        return blog.image_url;
       }
     },
     components:{
       'vue-markdown': VueMarkdown
     }
 }
+
 
 
 </script>
